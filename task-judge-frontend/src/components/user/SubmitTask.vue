@@ -48,7 +48,7 @@ const submit = () => {
     <div class="submission-container">
         <h2>提交大作业</h2>
         <div slot="tip" class="el-upload__tip">
-            请将未压缩项目文件、演示视频、报告文档放入按照规范命名文件夹中,再将文件夹压缩上传
+            请将未压缩项目文件、演示视频、报告文档放入按照规范命名（学号-姓名-组号.zip）文件夹中,再将文件夹压缩上传
         </div>
         <div slot="tip" class="el-upload__tip">现只支持上传.zip文件,文件大小限制20MB</div>
         <el-form>

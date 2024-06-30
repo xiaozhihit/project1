@@ -105,7 +105,10 @@ public class TaskController {
             User user = userService.getByUsername(username);
             tasks.removeIf(task -> task.getGroupId().equals(user.getGroupId()));//去掉自己所在小组作业
         }
+        System.out.println(username);
         List<Score> scores = scoreService.getByJudgeUsername(username);
+        System.out.println(scores);
+        System.out.println(tasks);
         //使用map表示一个带着score的task对象
         //由于时间关系，没有对数据库做太多的判断，默认数据库中已经创建好数据记录，只是没有打分或者提交
         List<Map<String, Object>> taskList = new ArrayList<>();
@@ -113,10 +116,13 @@ public class TaskController {
             Integer groupId = task.getGroupId();
             Score score = null;
             for (Score s : scores) {
+                System.out.println(s.getGroupId().equals(groupId));
                 if (s.getGroupId().equals(groupId)) {
                     score = s;
+                    System.out.println(score);
                 }
             }
+            System.out.println("-------------------------");
             //这里默认一定会有groupId能匹配的分数数据记录
             if (score == null) {
                 log.error("管理员请检查数据库表信息是否完善正确!!!");
